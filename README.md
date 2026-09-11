@@ -1,21 +1,21 @@
-# 🐧 Arch Linux Dotfiles
+# 🐧 Dotfiles do Arch Linux
 
-Configurações avançadas e minimalistas para o meu ambiente Arch Linux com Hyprland.
+Configurações avançadas e personalizadas para o meu ambiente Arch Linux com Hyprland e CachyOS.
 
-## 🛠️ Full Stack & Tools
+## 🛠️ Stack & Ferramentas
 | Componente | Ferramenta |
 | :--- | :--- |
-| **OS** | Arch Linux |
+| **OS** | Arch Linux (Kernel CachyOS BORE/LTO) |
 | **WM** | Hyprland (Caelestia) |
 | **Terminal** | Kitty |
 | **Shell** | Fish Shell |
 | **Editor** | Neovim (Nvim) |
-| **Bar** | Waybar |
-| **Launcher** | Rofi |
-| **System Info**| Fastfetch |
+| **Barra** | Waybar |
+| **Lançador** | Rofi |
+| **Info do Sistema** | Fastfetch |
 | **Monitor** | Btop |
 
-## 📂 Repository Structure
+## 📂 Estrutura do Repositório
 - \`config/hypr/\`: Configurações do Hyprland e animações
 - \`config/fish/\`: Atalhos, plugins e prompt do Fish
 - \`config/nvim/\`: Configurações e plugins do Neovim
@@ -24,11 +24,12 @@ Configurações avançadas e minimalistas para o meu ambiente Arch Linux com Hyp
 - \`config/rofi/\`: Menu de aplicativos
 - \`config/fastfetch/\`: Perfil visual de boas-vindas do terminal
 - \`config/btop/\`: Monitor de recursos do sistema
-- \`install.sh\`: Script de automação total
+- \`config/caelestia/utils/\`: Modificações Python customizadas
+- \`install.sh\`: Script de automação total (Repositório CachyOS, pacotes e configs)
 
-## 🚀 Quick Start
+## 🚀 Instalação Rápida
 
-Clone o repositório e execute o instalador:
+Clone o repositório e execute o script instalador:
 
 ```bash
 git clone [https://github.com/LourenzoARC/dotfiles.git](https://github.com/LourenzoARC/dotfiles.git) ~/dotfiles
