@@ -1,6 +1,6 @@
 # 🐧 Dotfiles do Arch Linux
 
-Configurações avançadas e personalizadas para o meu ambiente Arch Linux com Hyprland e CachyOS.
+Configurações para o meu ambiente Arch Linux com Hyprland(Caelestia) e CachyOS.
 
 ## 🛠️ Stack & Ferramentas
 | Componente | Ferramenta |
