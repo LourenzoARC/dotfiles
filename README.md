@@ -26,7 +26,7 @@ Para quem já possui o ambiente configurado e deseja apenas clonar e aplicar os 
 git clone https://github.com/LourenzoARC/dotfiles.git ~/dotfiles && cd ~/dotfiles && mkdir -p ~/.config && cp -rf config/* ~/.config/ && sudo cp -rf config/caelestia/utils/* /usr/lib/python3.14/site-packages/caelestia/utils/
 ```
 
-### Opção 2: Instalação Completa do Zero (All-in-One)
+### Opção 2: Instalação Completa do Zero 
 Para clonar e executar a instalação completa automatizada (kernel CachyOS, pacotes, configs e utilitários):
 
 ```bash
