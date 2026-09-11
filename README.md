@@ -17,9 +17,21 @@ Configurações avançadas e otimizadas para o ambiente Arch Linux com Hyprland 
 | **Informações do Sistema** | Fastfetch |
 | **Monitor de Recursos** | Btop |
 
-## Instalação Automatizada
+## Modos de Instalação e Uso
 
-O script de instalação automatizada configura o repositório do CachyOS, instala o kernel otimizado, gerencia a instalação de pacotes oficiais e do AUR, implanta as configurações do sistema e restaura os utilitários Python personalizados.
+### Opção 1: Aplicar Apenas Configurações e Customizações
+Para quem já possui o sistema configurado e deseja apenas aplicar os dotfiles e os utilitários Python personalizados:
+
+\`\`\`bash
+git clone https://github.com/LourenzoARC/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+mkdir -p ~/.config
+cp -rf config/* ~/.config/
+sudo cp -rf config/caelestia/utils/* /usr/lib/python3.14/site-packages/caelestia/utils/
+\`\`\`
+
+### Opção 2: Instalação Completa do Zero (All-in-One)
+Para uma instalação limpa que configura o repositório do CachyOS, instala o kernel otimizado, pacotes oficiais/AUR, configurações e utilitários:
 
 \`\`\`bash
 git clone https://github.com/LourenzoARC/dotfiles.git ~/dotfiles
