@@ -1,38 +1,41 @@
-# 🐧 Dotfiles do Arch Linux
+# Dotfiles - Arch Linux
 
-Configurações avançadas e personalizadas para o meu ambiente Arch Linux com Hyprland e Kernel CachyOS.
+Configurações avançadas e otimizadas para o ambiente Arch Linux com Hyprland e o kernel CachyOS (BORE/LTO).
 
-## 🛠️ Stack & Ferramentas
+## Stack e Ferramentas
+
 | Componente | Ferramenta |
 | :--- | :--- |
-| **OS** | Arch Linux (Kernel CachyOS BORE/LTO) |
-| **WM** | Hyprland (Caelestia) |
+| **Sistema Operacional** | Arch Linux |
+| **Kernel** | CachyOS (BORE / LTO) |
+| **Gerenciador de Janelas** | Hyprland (Caelestia) |
 | **Terminal** | Kitty |
 | **Shell** | Fish Shell |
-| **Editor** | Neovim (Nvim) |
-| **Barra** | Waybar |
-| **Lançador** | Rofi |
-| **Info do Sistema** | Fastfetch |
-| **Monitor** | Btop |
+| **Editor de Texto** | Neovim |
+| **Barra de Status** | Waybar |
+| **Lançador de Aplicativos** | Rofi |
+| **Informações do Sistema** | Fastfetch |
+| **Monitor de Recursos** | Btop |
 
-## ⚡ Instalação Automatizada (All-in-One)
+## Instalação Automatizada
 
-O script \`install.sh\` configura automaticamente o repositório do CachyOS, instala o kernel otimizado, puxa todos os pacotes oficiais e do AUR, implanta as configs do Hyprland e aplica suas modificações customizadas em Python do Caelestia.
+O script de instalação automatizada configura o repositório do CachyOS, instala o kernel otimizado, gerencia a instalação de pacotes oficiais e do AUR, implanta as configurações do sistema e restaura os utilitários Python personalizados.
 
-```bash
-git clone [https://github.com/LourenzoARC/dotfiles.git](https://github.com/LourenzoARC/dotfiles.git) ~/dotfiles
+\`\`\`bash
+git clone https://github.com/LourenzoARC/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./install.sh
-```
+\`\`\`
 
-## 📂 Estrutura do Repositório
-- \`config/hypr/\`: Configurações do Hyprland e animações
-- \`config/fish/\`: Atalhos, plugins e prompt do Fish
-- \`config/nvim/\`: Configurações e plugins do Neovim
-- \`config/kitty/\`: Tema e fontes do terminal Kitty
-- \`config/waybar/\`: Barra de status customizada
-- \`config/rofi/\`: Menu de aplicativos
-- \`config/fastfetch/\`: Perfil visual de boas-vindas do terminal
-- \`config/btop/\`: Monitor de recursos do sistema
-- \`config/caelestia/utils/\`: Modificações Python customizadas
-- \`install.sh\`: Script de automação total
+## Estrutura do Repositório
+
+- \`config/hypr/\`: Configurações e gerenciamento do Hyprland.
+- \`config/fish/\`: Configurações e plugins do Fish Shell.
+- \`config/nvim/\`: Arquivos de configuração do Neovim.
+- \`config/kitty/\`: Configurações do terminal Kitty.
+- \`config/waybar/\`: Layout e estilos da barra de status.
+- \`config/rofi/\`: Configurações do menu de aplicativos.
+- \`config/fastfetch/\`: Perfil do sistema.
+- \`config/btop/\`: Tema e configurações do monitor de recursos.
+- \`config/caelestia/utils/\`: Utilitários e customizações em Python.
+- \`install.sh\`: Script de automação e implantação completa.
