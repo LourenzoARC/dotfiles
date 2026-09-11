@@ -1,0 +1,12 @@
+# --- COMANDO AUTOMÁTICO DE REPARO (ARRUMAR) ---
+function arrumar
+    echo "🔄 [1/3] Garantindo pacotes de sistemas de arquivos..."
+    sudo pacman -S --needed --noconfirm ntfs-3g exfatprogs util-linux
+
+    echo "🔍 [2/3] Verificando e corrigindo partições travadas (NTFS/ExFAT)..."
+    for part in (lsblk -o NAME,FSTYPE -r | grep -E 'ntfs|exfat' | awk '{print "/dev/" $1}')
+        echo "Aplicando reparo em: $part"
+        sudo ntfsfix $part
+    end
+
+    echo "🚀 [3/3] Remontando todas as portas 
