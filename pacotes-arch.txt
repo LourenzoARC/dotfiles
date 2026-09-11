@@ -97,3 +97,5 @@ zapzap-bin
 zen-browser-bin
 zoxide
 zram-generator
+linux-cachyos-bore
+linux-cachyos-bore-headers
