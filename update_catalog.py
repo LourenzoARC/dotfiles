@@ -1,19 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import os
-import glob
 import urllib.parse
 
 def update_readme():
     readme_path = "README.md"
     static_dir = "wallpapers/static"
     
-    extensions = ("*.jpg", "*.jpeg", "*.png", "*.webp")
-    image_files = []
-    for ext in extensions:
-        image_files.extend(glob.glob(os.path.join(static_dir, ext)))
+    if not os.path.exists(static_dir):
+        print(f"[!] Diretório {static_dir} não encontrado!")
+        return
+
+    # Extensões válidas (aceita tanto minúsculas quanto maiúsculas)
+    valid_extensions = (".jpg", ".jpeg", ".png", ".webp", ".gif")
     
-    # Ordena do MAIOR para o MENOR arquivo (em bytes)
+    image_files = []
+    for filename in os.listdir(static_dir):
+        if filename.lower().endswith(valid_extensions):
+            full_path = os.path.join(static_dir, filename)
+            if os.path.isfile(full_path):
+                image_files.append(full_path)
+    
+    # Ordena do MAIOR para o MENOR arquivo por tamanho em bytes
     image_files.sort(key=lambda x: os.path.getsize(x), reverse=True)
     
     if not image_files:
@@ -25,7 +33,7 @@ def update_readme():
     catalog_html = '<div align="center">\n'
     for img in image_files:
         rel_path = img.replace("\\", "/")
-        # Codifica espaços e caracteres especiais para a URL raw funcionar perfeitamente
+        # Mantém o nome exato do arquivo preservando maiúsculas/minúsculas e codificando espaços
         encoded_path = urllib.parse.quote(rel_path, safe='/')
         raw_url = f"{raw_base}/{encoded_path}"
         catalog_html += f'<a href="{raw_url}" target="_blank"><img src="{raw_url}" width="200px" style="border-radius: 8px; margin: 6px;" /></a>\n'
@@ -52,7 +60,7 @@ def update_readme():
     with open(readme_path, "w", encoding="utf-8") as f:
         f.write(new_content)
     
-    print(f"[✓] Catálogo ordenado por tamanho e atualizado com {len(image_files)} wallpapers!")
+    print(f"[✓] Sucesso! Catálogo atualizado e rigorosamente ordenado com {len(image_files)} wallpapers.")
 
 if __name__ == "__main__":
     update_readme()
