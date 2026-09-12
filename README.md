@@ -1,6 +1,6 @@
 # Dotfiles - Arch Linux
 
-Configurações avançadas e otimizadas para o ambiente Arch Linux com Hyprland e o kernel CachyOS (BORE/LTO).
+Configurações para o ambiente Arch Linux com Hyprland e o kernel CachyOS (BORE/LTO).
 
 ## Stack e Ferramentas
 
