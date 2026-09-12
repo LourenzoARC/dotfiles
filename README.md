@@ -23,14 +23,14 @@ Configurações para o ambiente Arch Linux com Hyprland e o kernel CachyOS (BORE
 Para quem já possui o ambiente configurado e deseja apenas clonar e aplicar os dotfiles e utilitários Python:
 
 ```bash
-git clone https://github.com/LourenzoARC/dotfiles.git ~/dotfiles && cd ~/dotfiles && mkdir -p ~/.config && cp -rf config/* ~/.config/ && sudo cp -rf config/caelestia/utils/* /usr/lib/python3.14/site-packages/caelestia/utils/
+git clone [https://github.com/LourenzoARC/dotfiles.git](https://github.com/LourenzoARC/dotfiles.git) ~/dotfiles && cd ~/dotfiles && mkdir -p ~/.config && cp -rf config/* ~/.config/ && sudo cp -rf config/caelestia/utils/* /usr/lib/python3.14/site-packages/caelestia/utils/
 ```
 
 ### Opção 2: Instalação Completa do Zero 
 Para clonar e executar a instalação completa automatizada (kernel CachyOS, pacotes, configs e utilitários):
 
 ```bash
-git clone https://github.com/LourenzoARC/dotfiles.git ~/dotfiles && cd ~/dotfiles && ./install.sh
+git clone [https://github.com/LourenzoARC/dotfiles.git](https://github.com/LourenzoARC/dotfiles.git) ~/dotfiles && cd ~/dotfiles && ./install.sh
 ```
 
 ## Estrutura do Repositório

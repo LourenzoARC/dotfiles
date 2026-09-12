@@ -5,14 +5,11 @@ if status --is-login
     end
 end
 
-# O restante das suas configurações (starship, aliases, funções, etc.) continua abaixo:
+# Carrega coisas interativas (Starship, alias, zoxide, fastfetch)
 if status is-interactive
     cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
     starship init fish | source
-    # ... (resto do seu código)
-if status is-interactive
-    cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
-    starship init fish | source
+    
     command -v direnv &> /dev/null && direnv hook fish | source
     command -v zoxide &> /dev/null && zoxide init fish --cmd cd | source
 
@@ -27,14 +24,20 @@ if status is-interactive
     # Substituindo o nano pelo VS Code
     alias nano="code"
 
-    function code
-        command code-oss --ozone-platform=x11 $argv >/dev/null 2>&1 &
+    # Fastfetch aleatório na inicialização do terminal
+    set -l FASTFETCH_TXT (find ~/.config/fastfetch/ascii -type f -name "*.txt" 2>/dev/null | shuf -n 1)
+    if test -n "$FASTFETCH_TXT"
+        fastfetch --file "$FASTFETCH_TXT" --logo-type file 2>/dev/null
     end
+end
 
-    function ff
-    end
+# --- FUNÇÕES ---
 
-    ff
+function code
+    command code-oss --ozone-platform=x11 $argv >/dev/null 2>&1 &
+end
+
+function ff
 end
 
 function port
@@ -70,7 +73,6 @@ end
 function arrumar_app
     echo "🔍 Janelas ativas no momento:"
     
-    # Lista PIDs e Nomes das janelas usando o Hyprctl
     set -l pids (hyprctl clients | grep "pid:" | awk '{print $2}')
     set -l classes (hyprctl clients | grep "class:" | awk '{print $2}')
     
@@ -80,7 +82,6 @@ function arrumar_app
         return
     end
     
-    # Mostra a lista numerada para o usuário
     for i in (seq 1 $count)
         echo "[$i] " $classes[$i] " (PID: " $pids[$i] ")"
     end
@@ -103,7 +104,6 @@ function arrumar_app
     
     echo "⚙️  Processando $alvo_class (PID: $alvo_pid)..."
     
-    # Captura exatamente qual foi o comando no sistema que iniciou este app
     set -l cmd_full (cat /proc/$alvo_pid/cmdline | tr "\0" " ")
     set -l bin_name (echo $cmd_full | awk '{print $1}')
     
@@ -112,12 +112,16 @@ function arrumar_app
     sleep 1
     
     echo "🚀 Abrindo com a resolução original forçada (X11)..."
-    # Religa o app injetando todas as variáveis possíveis de "resolução clássica"
     env GDK_BACKEND=x11 QT_QPA_PLATFORM=xcb ELECTRON_OZONE_PLATFORM_HINT=auto $bin_name --ozone-platform=x11 >/dev/null 2>&1 &
     
     echo "✅ Concluído! A interface do $alvo_class deve estar normal agora."
 end
+
+# --- FUNÇÕES DE TRANSPARÊNCIA ---
+
+function limpo
+    kitty @ set-background-opacity 0.0
 end
-starship init fish | source
-set FASTFETCH_TXT (find ~/.config/fastfetch/ascii -type f -name "*.txt" 2>/dev/null | shuf -n 1)
-fastfetch --file "$FASTFETCH_TXT" --logo-type file 2>/dev/null
+function stop
+    kitty @ set-background-opacity 0.78
+end

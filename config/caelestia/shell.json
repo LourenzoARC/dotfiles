@@ -1,0 +1,14 @@
+{
+    "appearance": {
+        "transparency": {
+            "enabled": false
+        }
+    },
+    "general": {
+        "apps": {
+            "terminal": [
+                "kitty"
+            ]
+        }
+    }
+}
