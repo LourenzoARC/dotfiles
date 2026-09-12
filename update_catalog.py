@@ -17,11 +17,14 @@ def update_readme():
         print("[!] Nenhum wallpaper encontrado em wallpapers/static/")
         return
 
-    # HTML compactado em uma linha por item para evitar falhas no parser do GitHub
+    # URL base oficial do GitHub para arquivos crus (raw)
+    raw_base = "https://raw.githubusercontent.com/LourenzoARC/dotfiles/main"
+
     catalog_html = '<div align="center">\n'
     for img in image_files:
         rel_path = img.replace("\\", "/")
-        catalog_html += f'<a href="{rel_path}" target="_blank"><img src="{rel_path}" width="200px" style="border-radius: 8px; margin: 6px;" /></a>\n'
+        raw_url = f"{raw_base}/{rel_path}"
+        catalog_html += f'<a href="{raw_url}" target="_blank"><img src="{raw_url}" width="200px" style="border-radius: 8px; margin: 6px;" /></a>\n'
     catalog_html += '</div>'
 
     if os.path.exists(readme_path):
@@ -45,7 +48,7 @@ def update_readme():
     with open(readme_path, "w", encoding="utf-8") as f:
         f.write(new_content)
     
-    print(f"[✓] Sucesso! Catálogo atualizado com {len(image_files)} wallpapers.")
+    print(f"[✓] Sucesso! Catálogo atualizado com URLs raw para {len(image_files)} wallpapers.")
 
 if __name__ == "__main__":
     update_readme()
