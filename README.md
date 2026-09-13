@@ -45,6 +45,28 @@ git clone [https://github.com/LourenzoARC/dotfiles.git](https://github.com/Loure
 - `config/btop/`: Tema e configurações do monitor de recursos.
 - `config/caelestia/utils/`: Utilitários e customizações em Python.
 - `install.sh`: Script de automação e implantação completa.
+
+- ## Para Modificar imagens
+- nano ~/.config/caelestia/shell.json
+- {
+    "appearance": {
+        "transparency": {
+            "enabled": false
+        }
+    },
+    "general": {
+        "apps": {
+            "terminal": [
+                "kitty"
+            ]
+        },
+        "logo": "localização img"
+    },
+    "paths": {
+        "localização img",
+        "noNotifsPic": "localização img"
+    }
+}
 ## 🖼️ Wallpaper Catalog
 
 Clique em qualquer miniatura para abrir em tamanho real e baixar:
